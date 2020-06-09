@@ -5,7 +5,6 @@ import PageListPosts from './pages/PageListPosts'
 const App = () => {
   return (
     <div>
-      <PageListPosts/>
     </div>
   );
 }

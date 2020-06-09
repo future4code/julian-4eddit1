@@ -1,26 +1,69 @@
-import React from 'react'
-import styled from 'styled-components'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
+import React, { useState } from "react";
+import styled from "styled-components";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 const ContainerPageLogin = styled.div`
- width: 100vw;
- height: 100vh;
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
-`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
-const PageLogin = () =>{
-    return (
-    <ContainerPageLogin>
-        <TextField type="email"label="Email"/>
-        <TextField type="password"label="Password"/>
-        <Button variant="outlined">Entrar</Button>
-        <Button variant="outlined">Cadastrar</Button>
-    </ContainerPageLogin>
+const PageLogin = () => {
+  const history = useHistory();
+  const [emailValue, setEmailValue] = useState('');
+  const [senhaValue, setSenhaValue] = useState('');
+  const [user, setUser] = useState([]);
+
+  const onChangeEmail = ev => {
+      setEmailValue(ev.target.value);
+  };
+  const onChangeSenha = ev => {
+      setSenhaValue(ev.target.value);
+  };
+
+  const fazerLogin = async () => {
+    const body = {
+      email: emailValue,
+      password: senhaValue,
+    };
+    axios.post(
+      "https://us-central1-labenu-apis.cloudfunctions.net/labEddit/login",
+      body
     )
-}
+      .then((resposta) => {
+        localStorage.setItem("token", resposta.data.token);
+        console.log("data:", resposta.data);
+        console.log("token:", resposta.data.token);
+        console.log("user:", resposta.data.user);
+        setUser(resposta.data.user);
+        history.push("/feed");
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Você não possui login com a gente :(");
+      });
+  };
 
-export default PageLogin
+  const fazerCadastro = () => {
+    history.push("/cadaster");
+  };
+
+  return (
+    <ContainerPageLogin>
+      <TextField type="email" label="Email" onChange={onChangeEmail}/>
+      <TextField type="password" label="Password" onChange={onChangeSenha}/>
+      <Button variant="outlined" onClick={fazerLogin}>Entrar</Button>
+      <Button variant="outlined" onClick={fazerCadastro}>
+        Cadastrar
+      </Button>
+    </ContainerPageLogin>
+  );
+};
+
+export default PageLogin;

@@ -1,8 +1,11 @@
 import React from 'react';
+import PageLogin from './pages/PageLogin'
+import PageListPosts from './pages/PageListPosts'
 
-function App() {
+const App = () => {
   return (
-      app
+    <div>
+    </div>
   );
 }
 

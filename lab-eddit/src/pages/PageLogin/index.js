@@ -14,19 +14,11 @@ const ContainerPageLogin = styled.div`
   justify-content: center;
 `;
 
-export const initialState = {
-    token: '',
-    user: {
-        id: Date.now(),
-        username: '',
-        email: ''git 
-    }
-}
 const PageLogin = () => {
   const history = useHistory();
-//   const [emailValue, setEmailValue] = useState('');
-//   const [senhaValue, setSenhaValue] = useState('');
-//   const [user, setUser] = useState([]);
+  const [emailValue, setEmailValue] = useState('');
+  const [senhaValue, setSenhaValue] = useState('');
+  const [user, setUser] = useState([]);
 
   const onChangeEmail = ev => {
       setEmailValue(ev.target.value);

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import {useHistory} from 'react-router-dom'
 
 const ContainerPost = styled.div`
     width: 90%;
@@ -12,6 +13,9 @@ const ContainerPost = styled.div`
 
 
 const NewPost = ()=>{
+    const history =  useHistory()
+
+
     return(
         <ContainerPost>
         <TextField 

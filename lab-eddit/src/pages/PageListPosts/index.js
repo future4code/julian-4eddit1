@@ -1,11 +1,9 @@
 import React, {useEffect, useState}from 'react'
 import styled from 'styled-components'
 import {useHistory} from 'react-router-dom'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
 import Post from '../PageListPosts/post'
 import NewPost from '../PageListPosts/NewPost'
-import axios from 'axios'
+import {useRequestDataGet} from '../../CustomHooks/useRequestDataGet'
 
 const ContainerPageListPosts = styled.div`
     display: flex;
@@ -14,27 +12,16 @@ const ContainerPageListPosts = styled.div`
     width: 100vw;
     padding: 1%;
 `
-
-const PageListPosts = ()=>{
-    const token = localStorage.getItem('token')
-    const [posts, setPosts] = useState([])
-    const history = useHistory()
     
+const PageListPosts = ()=>{
+    const history = useHistory()
+    const posts = useRequestDataGet('https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts', [])
+
     useEffect(()=>{
+        const token = localStorage.getItem('token')
         if (token === null) {
             history.push("/");
         }
-
-        axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts',{
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: token
-            }
-        }).then((response)=>{
-            console.log(response.data.posts)
-            setPosts(response.data.posts)
-        })
-
     },[])
 
     return (
@@ -42,14 +29,16 @@ const PageListPosts = ()=>{
         <NewPost/>
         {posts.map((post)=>{
             return(
-                <div>
-                    <p>{post.name}</p>
-                    <Post/>
-                </div>
-                
+                <Post 
+                key={post.id}
+                idPost={post.id} 
+                nomeUser={post.username} 
+                textPost={post.text} 
+                titlePost={post.title}
+                votesCount={post.votesCount}
+                />
             )
         })}
-        
     </ContainerPageListPosts>
     )
 }

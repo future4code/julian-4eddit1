@@ -15,7 +15,7 @@ const ContainerPageListPosts = styled.div`
     
 const PageListPosts = ()=>{
     const posts = useRequestDataGet('https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts', [])
-
+    const history = useHistory()
 
     useEffect(()=>{
         const token = localStorage.getItem('token')
@@ -36,6 +36,7 @@ const PageListPosts = ()=>{
                 textPost={post.text} 
                 titlePost={post.title}
                 votesCount={post.votesCount}
+                commentsCount = {post.commentsCount}
                 />
             )
         })}

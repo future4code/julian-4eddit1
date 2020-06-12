@@ -18,6 +18,7 @@ export const useRequestDataGet = (url, initialState) =>{
             }
         }).then((response)=>{
             setData(response.data.posts)
+            console.log(response.data.posts)
         }).catch((error)=>{
             console.log(error)
         })

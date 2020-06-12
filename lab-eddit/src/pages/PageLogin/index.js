@@ -4,7 +4,7 @@ import axios from "axios";
 import styled from "styled-components";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import logo from '../../Imagens/labeddit2.png';
+import logo from '../../imagens/labeddit2.png';
 
 const ContainerPageLogin = styled.div`
   width: 100vw;

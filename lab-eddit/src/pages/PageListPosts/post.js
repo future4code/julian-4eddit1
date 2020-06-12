@@ -53,7 +53,7 @@ const Post = (props)=>{
                         <ArrowDownwardIcon fontSize="inherit" />
                     </IconButton>
                 </ContainerReaction>
-                <p>0 comentarios</p>
+                <p>{props.commentsCount} comentarios</p>
             </ContainerFooter>
         </ContainerPost>
     )

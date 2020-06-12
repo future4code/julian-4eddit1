@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { TextField, Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import logo from '../../Imagens/labeddit2.png';
+import logo from '../../imagens/labeddit2.png';
 
 const ContainerCadastro = styled.div`
   height: 100vh;

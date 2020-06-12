@@ -15,14 +15,19 @@ const InputComentar = () => {
     };
 
     const comentar = () =>{
+        const token = localStorage.getItem('token')
         const body ={
             text: texto
         };
-        axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts/${pathParams.postId}/comment`, body)
+        axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts/${pathParams.idPost}/comment`, body, {
+          headers: {
+            Authorization: token
+          }
+        })
         .then(resposta => {
             console.log(resposta.data);
-        }). catch(erro => {
-            console.error(erro);
+        }). catch(error => {
+            console.error(error);
         });
     };
   return (

@@ -1,11 +1,12 @@
 import React from "react";
 import UpIcon from "@material-ui/icons/ArrowUpwardOutlined";
 import DownIcon from "@material-ui/icons/ArrowDownward";
-import { TextField, Button } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import { useRequestDataGetDetail, useDataComments } from "../../CustomHooks/useRequestDataGet";
 import CardComentario from './CardComentario';
+import InputComentar from "./InputComentar";
 import { ContainerPosts, CardPost, Title, TituloPost, TextPost, BottomPost, Votos, InputComentarios, Comentarios} from '../styled';
+
 
 const PagePost = () => {
   const pathParams = useParams();
@@ -37,16 +38,7 @@ const PagePost = () => {
           <Comentarios>{post.commentsCount} Comentários</Comentarios>
         </BottomPost>
       </CardPost>
-      <InputComentarios>
-        <TextField
-          multiline
-          rowsMax={3}
-          placeholder="Escreva aqui seu Comentário"
-        >
-          Escreva seu comentario
-        </TextField>
-        <Button variant="contained">Comentar</Button>
-      </InputComentarios>
+      <InputComentar />
         {comments.map((comentario) =>{
             return(
                 <CardComentario

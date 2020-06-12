@@ -16,15 +16,15 @@ const ContainerPageLogin = styled.div`
 
 const PageLogin = () => {
   const history = useHistory();
-  const [emailValue, setEmailValue] = useState('');
-  const [senhaValue, setSenhaValue] = useState('');
+  const [emailValue, setEmailValue] = useState("");
+  const [senhaValue, setSenhaValue] = useState("");
   const [user, setUser] = useState([]);
 
-  const onChangeEmail = ev => {
-      setEmailValue(ev.target.value);
+  const onChangeEmail = (ev) => {
+    setEmailValue(ev.target.value);
   };
-  const onChangeSenha = ev => {
-      setSenhaValue(ev.target.value);
+  const onChangeSenha = (ev) => {
+    setSenhaValue(ev.target.value);
   };
 
   const fazerLogin = async () => {
@@ -32,10 +32,11 @@ const PageLogin = () => {
       email: emailValue,
       password: senhaValue,
     };
-    axios.post(
-      "https://us-central1-labenu-apis.cloudfunctions.net/labEddit/login",
-      body
-    )
+    axios
+      .post(
+        "https://us-central1-labenu-apis.cloudfunctions.net/labEddit/login",
+        body
+      )
       .then((resposta) => {
         localStorage.setItem("token", resposta.data.token);
         setUser(resposta.data.user);
@@ -49,12 +50,19 @@ const PageLogin = () => {
   const fazerCadastro = () => {
     history.push("/cadaster");
   };
+  const enviarEnter = (ev) => {
+    if (ev.key === "Enter"){
+      fazerLogin();
+    }
+  };
 
   return (
     <ContainerPageLogin>
-      <TextField type="email" label="Email" onChange={onChangeEmail}/>
-      <TextField type="password" label="Password" onChange={onChangeSenha}/>
-      <Button variant="outlined" onClick={fazerLogin}>Entrar</Button>
+      <TextField type="email" label="Email" onChange={onChangeEmail} />
+      <TextField type="password" label="Password" onChange={onChangeSenha} onKeyDown={enviarEnter}/>
+      <Button variant="outlined" onClick={fazerLogin}>
+        Entrar
+      </Button>
       <Button variant="outlined" onClick={fazerCadastro}>
         Cadastrar
       </Button>

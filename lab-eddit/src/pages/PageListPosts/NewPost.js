@@ -15,7 +15,6 @@ const ContainerPost = styled.div`
 const NewPost = ()=>{
     const history =  useHistory()
 
-
     return(
         <ContainerPost>
         <TextField 

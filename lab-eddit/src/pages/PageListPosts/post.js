@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 import ArrowUpwardOutlinedIcon from '@material-ui/icons/ArrowUpwardOutlined';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import IconButton from '@material-ui/core/IconButton'
-import {useHistory} from 'react-router-dom'
+import IconButton from '@material-ui/core/IconButton';
+import {useHistory} from 'react-router-dom';
 
 
 const ContainerPost = styled.div`

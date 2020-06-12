@@ -38,14 +38,10 @@ const PageLogin = () => {
     )
       .then((resposta) => {
         localStorage.setItem("token", resposta.data.token);
-        console.log("data:", resposta.data);
-        console.log("token:", resposta.data.token);
-        console.log("user:", resposta.data.user);
         setUser(resposta.data.user);
         history.push("/feed");
       })
       .catch((error) => {
-        console.log(error);
         alert("Você não possui login com a gente :(");
       });
   };

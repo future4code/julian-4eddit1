@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 import styled from "styled-components";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import { useHistory } from "react-router-dom";
-import axios from "axios";
+import logo from '../../Imagens/labeddit2.png';
 
 const ContainerPageLogin = styled.div`
   width: 100vw;
@@ -11,8 +12,22 @@ const ContainerPageLogin = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 45%;
 `;
+const ImgLogo = styled.img`
+  width: 60%;
+  margin-bottom: 10%;
+`;
+const FormLogin = styled.form`
+  height: 30%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background: white;
+`;
+
 
 const PageLogin = () => {
   const history = useHistory();
@@ -58,14 +73,15 @@ const PageLogin = () => {
 
   return (
     <ContainerPageLogin>
-      <TextField type="email" label="Email" onChange={onChangeEmail} />
-      <TextField type="password" label="Password" onChange={onChangeSenha} onKeyDown={enviarEnter}/>
-      <Button variant="outlined" onClick={fazerLogin}>
-        Entrar
-      </Button>
-      <Button variant="outlined" onClick={fazerCadastro}>
-        Cadastrar
-      </Button>
+      <ImgLogo src={logo}/>
+      <FormLogin>
+        <TextField type="email" label="Email" onChange={onChangeEmail}/>
+        <TextField type="password" label="Password" onChange={onChangeSenha} onKeyDown={enviarEnter}/>
+        <Button variant="outlined" onClick={fazerLogin}>Entrar</Button>
+        <Button variant="outlined" onClick={fazerCadastro}>
+          Cadastrar
+        </Button>
+      </FormLogin>
     </ContainerPageLogin>
   );
 };

@@ -9,8 +9,7 @@ const ContainerPost = styled.div`
     border: 1px solid black;
     display:flex;
     flex-direction: column;
-`
-
+`;
 
 const NewPost = ()=>{
     const history =  useHistory()

@@ -5,29 +5,28 @@ import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import IconButton from '@material-ui/core/IconButton';
 import {useHistory} from 'react-router-dom';
 
-
+const ContainerFooter = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
 const ContainerPost = styled.div`
-    border: 1px solid black;
-    width: 90%;
-    margin: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`
+  border: 1px solid black;
+  width: 90%;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: capitalize;
+`;
 const ContainerTextPost = styled.div`
-    width: 100%;
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
-`
-const ContainerFooter = styled.footer`
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-
-`
+  width: 100%;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+`;
 const ContainerReaction = styled.div`
- display: flex;
-`
+  display: flex;
+`;
 
 const Post = (props)=>{
 

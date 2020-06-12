@@ -5,7 +5,7 @@ import { TextField, Button } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import { useRequestDataGetDetail, useDataComments } from "../../CustomHooks/useRequestDataGet";
 import CardComentario from './CardComentario';
-import { ContainerPost, CardPost, Title, TextPost, BottomPost, Votos, InputComentarios, Comentarios} from '../styled';
+import { ContainerPosts, CardPost, Title, TituloPost, TextPost, BottomPost, Votos, InputComentarios, Comentarios} from '../styled';
 
 const PagePost = () => {
   const pathParams = useParams();
@@ -19,14 +19,14 @@ const PagePost = () => {
   );
 
   return (
-    <ContainerPost>
+    <ContainerPosts>
       <CardPost>
         <Title>
           <p>{post.username}</p>
         </Title>
         <TextPost>
-            <h4>{post.title}</h4>
-            <p>"{post.text}"</p>
+            <TituloPost>{post.title}</TituloPost>
+            <p>{post.text}</p>
         </TextPost>
         <BottomPost>
           <Votos>
@@ -53,11 +53,11 @@ const PagePost = () => {
                     key={comentario.id}
                     username={comentario.username}
                     text={comentario.text}
-                    voteCount={comentario.votesCount}
+                    votesCount={comentario.votesCount}
                 />
             )
         })}
-    </ContainerPost>
+    </ContainerPosts>
   );
 };
 

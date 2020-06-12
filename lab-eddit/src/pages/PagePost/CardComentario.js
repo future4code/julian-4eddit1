@@ -9,10 +9,10 @@ const CardComentario = (props) =>{
         <Title>
             <p>{props.username}</p>
         </Title>
-        <TextPost>"{props.text}t"</TextPost>
+        <TextPost>{props.text}</TextPost>
         <BottomPost>
         <Votos>
-            <UpIcon />{props.votesCount}<DownIcon />
+            <UpIcon/>{props.votesCount}<DownIcon />
         </Votos>
         </BottomPost>
     </CardComentarios>

@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 //PAGE POST
-export const ContainerPost = styled.div`
+export const ContainerPosts = styled.div`
   height: 94vh;
   width: 87vw;
   display: flex;
@@ -27,6 +27,12 @@ export const Title = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: gray;
+  color: white;
+  text-transform: capitalize;
+`;
+export const TituloPost = styled.h4`
+  margin: 2px;
 `;
 export const TextPost = styled.div`
   width: 100%;
@@ -36,7 +42,6 @@ export const TextPost = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid red;
 `;
 export const BottomPost = styled.div`
   width: 100%;
@@ -68,3 +73,6 @@ export const CardComentarios = styled.div`
   justify-content: center;
   margin: 15px;
 `;
+
+//PAGE LIST POST
+

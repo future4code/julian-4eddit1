@@ -22,7 +22,7 @@ const PageListPosts = ()=>{
         if (token === null) {
             history.push("/");
         }
-    },[])
+    },[]);
 
     return (
     <ContainerPageListPosts>

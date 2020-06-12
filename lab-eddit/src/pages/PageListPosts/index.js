@@ -14,8 +14,8 @@ const ContainerPageListPosts = styled.div`
 `
     
 const PageListPosts = ()=>{
-    const history = useHistory()
     const posts = useRequestDataGet('https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts', [])
+
 
     useEffect(()=>{
         const token = localStorage.getItem('token')
@@ -23,7 +23,7 @@ const PageListPosts = ()=>{
             history.push("/");
         }
     },[]);
-
+  
     return (
     <ContainerPageListPosts>
         <NewPost/>

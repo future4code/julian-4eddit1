@@ -31,6 +31,7 @@ const NewPost = ()=>{
         setText('')
         setTitle('')
     }
+
     return(
         <ContainerPost>
         <TextField label="titulo" value={title} onChange={onChangeTitle}/>

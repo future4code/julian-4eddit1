@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect}from 'react'
 import styled from 'styled-components'
 import {useHistory} from 'react-router-dom'
 import Post from '../PageListPosts/post'
@@ -16,6 +16,14 @@ const ContainerPageListPosts = styled.div`
 const PageListPosts = ()=>{
     const posts = useRequestDataGet('https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts', [])
 
+
+    useEffect(()=>{
+        const token = localStorage.getItem('token')
+        if (token === null) {
+            history.push("/");
+        }
+    },[]);
+  
     return (
     <ContainerPageListPosts>
         <NewPost/>

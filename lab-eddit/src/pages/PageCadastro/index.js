@@ -28,13 +28,18 @@ const PageCadastro = () => {
   }
   const criarLogin = () => {
     history.push("/feed");
-  }
+  };
+  const enviarEnter = (ev) => {
+    if (ev.key === "Enter"){
+      criarLogin();
+    }
+  };
 
   return (
     <Form>
      <TextField label="Nome de usuário" type="text" onChange={onChangeUserName}/>
      <TextField label="Email" type="email" onChange={onChangeEmail}/>
-     <TextField label="Senha" type="password" onChange={onChangeSenha}/>
+     <TextField label="Senha" type="password" onChange={onChangeSenha} onKeyDown={enviarEnter}/>
      <Button variant="contained" onClick={criarLogin}>Cadastrar</Button>
     </Form>
   );

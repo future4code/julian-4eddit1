@@ -1,4 +1,4 @@
-import React, {useEffect, useState}from 'react'
+import React, {useEffect}from 'react'
 import styled from 'styled-components'
 import {useHistory} from 'react-router-dom'
 import Post from '../PageListPosts/post'
@@ -22,7 +22,7 @@ const PageListPosts = ()=>{
         if (token === null) {
             history.push("/");
         }
-    },[])
+    },[]);
 
     return (
     <ContainerPageListPosts>

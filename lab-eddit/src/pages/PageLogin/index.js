@@ -31,15 +31,15 @@ const FormLogin = styled.form`
 
 const PageLogin = () => {
   const history = useHistory();
-  const [emailValue, setEmailValue] = useState('');
-  const [senhaValue, setSenhaValue] = useState('');
+  const [emailValue, setEmailValue] = useState("");
+  const [senhaValue, setSenhaValue] = useState("");
   const [user, setUser] = useState([]);
 
-  const onChangeEmail = ev => {
-      setEmailValue(ev.target.value);
+  const onChangeEmail = (ev) => {
+    setEmailValue(ev.target.value);
   };
-  const onChangeSenha = ev => {
-      setSenhaValue(ev.target.value);
+  const onChangeSenha = (ev) => {
+    setSenhaValue(ev.target.value);
   };
 
   const fazerLogin = async () => {
@@ -47,20 +47,17 @@ const PageLogin = () => {
       email: emailValue,
       password: senhaValue,
     };
-    axios.post(
-      "https://us-central1-labenu-apis.cloudfunctions.net/labEddit/login",
-      body
-    )
+    axios
+      .post(
+        "https://us-central1-labenu-apis.cloudfunctions.net/labEddit/login",
+        body
+      )
       .then((resposta) => {
         localStorage.setItem("token", resposta.data.token);
-        console.log("data:", resposta.data);
-        console.log("token:", resposta.data.token);
-        console.log("user:", resposta.data.user);
         setUser(resposta.data.user);
         history.push("/feed");
       })
       .catch((error) => {
-        console.log(error);
         alert("Você não possui login com a gente :(");
       });
   };
@@ -68,13 +65,18 @@ const PageLogin = () => {
   const fazerCadastro = () => {
     history.push("/cadaster");
   };
+  const enviarEnter = (ev) => {
+    if (ev.key === "Enter"){
+      fazerLogin();
+    }
+  };
 
   return (
     <ContainerPageLogin>
       <ImgLogo src={logo}/>
       <FormLogin>
         <TextField type="email" label="Email" onChange={onChangeEmail}/>
-        <TextField type="password" label="Password" onChange={onChangeSenha}/>
+        <TextField type="password" label="Password" onChange={onChangeSenha} onKeyDown={enviarEnter}/>
         <Button variant="outlined" onClick={fazerLogin}>Entrar</Button>
         <Button variant="outlined" onClick={fazerCadastro}>
           Cadastrar

@@ -22,7 +22,7 @@ export const useRequestDataGet = (url, initialState) =>{
         }).catch((error)=>{
             console.log(error)
         })
-    },[url])
+    },[url, history])
 
     return data
 };
@@ -46,7 +46,7 @@ export const useRequestDataGetDetail = (url, initialState) =>{
         }).catch((error)=>{
             console.error(error)
         })
-    },[url]);
+    },[url, history]);
     return data
 }
 export const useDataComments = (url, initialState) =>{
@@ -68,6 +68,6 @@ export const useDataComments = (url, initialState) =>{
         }).catch((error)=>{
             console.error(error)
         })
-    },[url]);
+    },[url, history]);
     return data
 }

@@ -1,12 +1,27 @@
-import axios from 'axios'
+import axios from 'axios';
 
-export const newPost =(url, body)=>{
+export const newPost = (url, body) => {
     const token = localStorage.getItem('token')
-    axios.post(url, body, {headers: {
-        Authorization: token
-    }}).then(response=>{
+    axios.post(url, body, {
+        headers: {
+            Authorization: token
+        }
+    }).then(response => {
         console.log(response)
-    }).catch(error=>{
+    }).catch(error => {
         console.log(error)
     })
-}
+};
+
+export const comentar = (url, body) => {
+    const token = localStorage.getItem('token');
+    axios.post(url, body, {
+        headers: {
+            Authorization: token
+        }
+    }).then(resposta => {
+        console.log(resposta.data);
+    }).catch(error => {
+        console.error(error);
+    });
+};

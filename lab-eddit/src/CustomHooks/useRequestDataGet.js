@@ -22,7 +22,7 @@ export const useRequestDataGet = (url, initialState) =>{
         }).catch((error)=>{
             console.log(error)
         })
-    },[url])
+    },[url, history])
 
     return data
 };
@@ -31,22 +31,21 @@ export const useRequestDataGetDetail = (url, initialState) =>{
     const [data, setData] = useState(initialState);
     const history = useHistory();
 
-    useEffect(()=>{
-        const token = localStorage.getItem('token');
-        if (token === null) {
-            history.push("/");
+    const token = localStorage.getItem('token');
+    if (token === null) {
+        history.push("/");
+    }
+    axios.get(url, {
+        headers:{
+            Authorization: token
         }
-        axios.get(url, {
-            headers:{
-                Authorization: token
-            }
-        }).then((response)=>{
-            console.log(response.data.post)
-            setData(response.data.post)
-        }).catch((error)=>{
-            console.error(error)
-        })
-    },[url]);
+    }).then((response)=>{
+        console.log(response.data.post)
+        setData(response.data.post)
+    }).catch((error)=>{
+        console.error(error)
+    })
+
     return data
 }
 export const useDataComments = (url, initialState) =>{
@@ -68,6 +67,6 @@ export const useDataComments = (url, initialState) =>{
         }).catch((error)=>{
             console.error(error)
         })
-    },[url]);
+    },[url, history]);
     return data
 }

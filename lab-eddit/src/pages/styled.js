@@ -2,13 +2,12 @@ import styled from "styled-components";
 
 //PAGE POST
 export const ContainerPosts = styled.div`
-  width: 87vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   justify-content: flex-start;
-  padding: 20px;
+  border: 2px solid red;
 `;
 export const CardPost = styled.div`
   height: 25%;

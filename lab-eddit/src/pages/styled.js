@@ -1,5 +1,45 @@
 import styled from "styled-components";
 
+
+//PAGE LOGIN
+export const ContainerPageLogin = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 45%;
+`;
+export const ImgLogo = styled.img`
+  width: 60%;
+  margin-bottom: 10%;
+`;
+export const FormLogin = styled.form`
+  height: 30%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background: white;
+`;
+//PAGE CADASTRO
+export const ContainerCadastro = styled.div`
+height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+margin-top: 45%;
+`;
+export const FormCadastro = styled.form`
+height: 30%;
+width: 50%;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+background: white;
+`;
 //PAGE POST
 export const ContainerPosts = styled.div`
   display: flex;
@@ -73,4 +113,39 @@ export const CardComentarios = styled.div`
 `;
 
 //PAGE LIST POST
+export const ContainerPageListPosts = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    padding: 1%;
+`;
+export const ContainerPost = styled.div`
+    width: 90%;
+    border: 1px solid black;
+    display:flex;
+    flex-direction: column;
+`;
+export const ContainerFooter = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+export const CaixaPost = styled.div`
+  border: 1px solid black;
+  width: 90%;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: capitalize;
+`;
+export const ContainerTextPost = styled.div`
+  width: 100%;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+`;
+export const ContainerReaction = styled.div`
+  display: flex;
+`;
 

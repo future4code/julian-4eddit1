@@ -1,18 +1,10 @@
-import React, {useEffect}from 'react'
-import styled from 'styled-components'
-import {useHistory} from 'react-router-dom'
-import Post from '../PageListPosts/post'
-import NewPost from '../PageListPosts/NewPost'
-import {useRequestDataGet} from '../../CustomHooks/useRequestDataGet'
+import React, {useEffect}from 'react';
+import {useHistory} from 'react-router-dom';
+import Post from '../PageListPosts/post';
+import NewPost from '../PageListPosts/NewPost';
+import {useRequestDataGet} from '../../CustomHooks/useRequestDataGet';
+import { ContainerPageListPosts } from '../styled';
 
-const ContainerPageListPosts = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    padding: 1%;
-`
-    
 const PageListPosts = ()=>{
     const posts = useRequestDataGet('https://us-central1-labenu-apis.cloudfunctions.net/labEddit/posts', [])
     const history = useHistory()

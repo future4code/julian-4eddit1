@@ -31,22 +31,21 @@ export const useRequestDataGetDetail = (url, initialState) =>{
     const [data, setData] = useState(initialState);
     const history = useHistory();
 
-    useEffect(()=>{
-        const token = localStorage.getItem('token');
-        if (token === null) {
-            history.push("/");
+    const token = localStorage.getItem('token');
+    if (token === null) {
+        history.push("/");
+    }
+    axios.get(url, {
+        headers:{
+            Authorization: token
         }
-        axios.get(url, {
-            headers:{
-                Authorization: token
-            }
-        }).then((response)=>{
-            console.log(response.data.post)
-            setData(response.data.post)
-        }).catch((error)=>{
-            console.error(error)
-        })
-    },[url, history]);
+    }).then((response)=>{
+        console.log(response.data.post)
+        setData(response.data.post)
+    }).catch((error)=>{
+        console.error(error)
+    })
+
     return data
 }
 export const useDataComments = (url, initialState) =>{

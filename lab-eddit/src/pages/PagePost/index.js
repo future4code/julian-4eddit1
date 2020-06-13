@@ -59,6 +59,7 @@ const PagePost = () => {
       {comments.map((comentario) => {
         return (
           <CardComentario
+            commentId={comentario.id}
             key={comentario.id}
             username={comentario.username}
             text={comentario.text}

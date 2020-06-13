@@ -1,15 +1,8 @@
-import React, {useState} from 'react'
-import styled from 'styled-components'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-import {newPost} from '../../CustomHooks/useRequestDataPost'
-
-const ContainerPost = styled.div`
-    width: 90%;
-    border: 1px solid black;
-    display:flex;
-    flex-direction: column;
-`
+import React, {useState} from 'react';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import { newPost } from '../../CustomHooks/useRequestDataPost';
+import { ContainerPost } from '../styled';
 
 const NewPost = ()=>{
     const [title, setTitle] = useState('')

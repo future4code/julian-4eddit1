@@ -1,29 +1,9 @@
 import React, { useState } from "react";
 import { TextField, Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-import styled from "styled-components";
 import logo from '../../imagens/labeddit2.png';
+import { ContainerCadastro, ImgLogo, FormCadastro} from '../styled';
 
-const ContainerCadastro = styled.div`
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  margin-top: 45%;
-`;
-const ImgLogo = styled.img`
-  width: 60%;
-  margin-bottom: 10%;
-`;
-const FormCadastro = styled.form`
-  height: 30%;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  background: white;
-`;
 const PageCadastro = () => {
   const history = useHistory();
   const [userName, setUserName] = useState("");

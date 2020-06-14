@@ -12,16 +12,3 @@ export const newPost = (url, body) => {
         console.log(error)
     })
 };
-
-export const comentar = (url, body) => {
-    const token = localStorage.getItem('token');
-    axios.post(url, body, {
-        headers: {
-            Authorization: token
-        }
-    }).then(resposta => {
-        console.log(resposta.data);
-    }).catch(error => {
-        console.error(error);
-    });
-};

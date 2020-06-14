@@ -15,7 +15,8 @@ const PageListPosts = ()=>{
             history.push("/");
         }
     },[]);
-  
+    
+    
     return (
     <ContainerPageListPosts>
         <NewPost/>
